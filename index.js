@@ -1,11 +1,11 @@
-/** @jsx createElement */
-/** @jsxFrag createFragment */
 let appInitted = false;
 const createElement = (tag, props, ...children) => {
+  console.log('tag', tag);
   if (typeof tag === 'function') {
     if (!appInitted) {
       appInitted = true;
       app = tag;
+      console.log('app', app);
     }
     return tag(props, ...children);
   }
@@ -127,15 +127,24 @@ const patch = (ddom, vdom) => {
     replace(ddom, vdom);
   }
 };
+const appendElementOrFragment = (elementOrArray, container) => {
+  if (Array.isArray(elementOrArray)) {
+    for (const element of elementOrArray) {
+      appendElementOrFragment(element, container);
+    }
+  } else {
+    container.appendChild(elementOrArray || '');
+  }
+};
 const render = () => {
   currentStateKey = -1;
   currentUseEffectKey = -1;
   // /reset
   const rootwrapper = document.createElement('div');
   rootwrapper.setAttribute('id', 'root');
-
-  rootwrapper.appendChild(createElement(app) || '');
-
+  console.log('rootapp, ', app, createElement(app));
+  const createdApp = createElement(app);
+  appendElementOrFragment(createdApp, rootwrapper);
   // const vdom = document.createElement('div').appendChild(
   //   // <div id="root">
   //   //   {/* <UsingFragment name="foo" /> */}
