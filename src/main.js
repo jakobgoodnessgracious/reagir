@@ -1,4 +1,4 @@
-import TReact, { useEffect, useState, createRoot } from '/TReact';
+import Reagir, { useEffect, useState, createRoot } from '/Reagir';
 const ChildTestColorGuy = (props) => {
   return (
     <div

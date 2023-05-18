@@ -1,21 +1,21 @@
-# treact
+# reagir
 
 Simple console and file logging utility.
 
 ## Install
 
 ```js
-npm install treact --save
+npm install reagir --save
 // or with yarn
-yarn add treact
+yarn add reagir
 ```
 
 ## Usage
 
 ```js
-const treact = require('treact');
+const reagir = require('reagir');
 
-const logger = new treact({ toFile: true, logLevel: 'debug' });
+const logger = new reagir({ toFile: true, logLevel: 'debug' });
 
 logger.debug('Entered spinCogs().');
 logger.info('All cogs started successfully.');
@@ -28,11 +28,11 @@ logger.debug('cog', JSON.stringify({ rotations: 9372, screeches: 1941 }));
 
 ## Full Setup
 
-Make a file (logger.js or otherwise) in the directory of your choosing. Export the treact logger.
+Make a file (logger.js or otherwise) in the directory of your choosing. Export the reagir logger.
 
 ```js
-const treact = require('treact'); // or with mjs: import treact from 'treact';
-const logger = new treact({
+const reagir = require('reagir'); // or with mjs: import reagir from 'reagir';
+const logger = new reagir({
   toFile: true,
   logLevel: process.env.LOG_LEVEL,
   fileDateTimeFormat: 'LL-dd-yyyy_H-m',
@@ -79,4 +79,4 @@ logger.end();
 | `unsafeMode`          | `boolean`                                           | True if you would like to set a log directory location 'above' the current directory.                                                                   |
 | `extension`           | `.log`                                              | Change the file extension.                                                                                                                              |
 | `maxLogFileAge`       | `null`                                              | \<num\>:\<timeType\> One of: 'month\|months', 'week\|weeks', 'day\|days', 'hour\|hours', 'minute\|minutes', 'second\|seconds. e.g. '1:day' or '2:weeks' |
-# treact
+# reagir

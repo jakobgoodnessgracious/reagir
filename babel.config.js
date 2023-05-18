@@ -1,4 +1,3 @@
-require('./TReact');
 module.exports = {
   presets: ['@babel/preset-env'], //"@babel/preset-react" /react
   //   presets: ['@babel/env'], //"@babel/preset-react" /react
@@ -7,7 +6,7 @@ module.exports = {
     // '@babel/plugin-syntax-jsx',
     [
       '@babel/plugin-transform-react-jsx',
-      { pragma: 'TReact.createElement', pragmaFrag: 'TReact.createFragment' }, // , pragmaFrag: createFragment },
+      { pragma: 'Reagir.createElement', pragmaFrag: 'Reagir.createFragment' }, // , pragmaFrag: createFragment },
     ],
   ],
 };
